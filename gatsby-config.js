@@ -61,8 +61,7 @@ module.exports = {
         {
             resolve: `gatsby-source-ghost`,
             options: process.env.NODE_ENV === `development` ?
-                ghostConfig.development :
-                ghostConfig.production,
+                ghostConfig.development : ghostConfig.production,
         },
         /**
          *  Utility Plugins
@@ -186,7 +185,7 @@ module.exports = {
             resolve: 'gatsby-plugin-matomo',
             options: {
                 siteId: '1',
-                matomoUrl: 'http://analytics.cakelin.com',
+                matomoUrl: 'https://analytics.cakelin.com',
                 siteUrl: 'https://cakelin.com'
             }
         }
