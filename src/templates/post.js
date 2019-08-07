@@ -29,7 +29,7 @@ const Post = ({ data, location }) => {
                     <div className="container">
                         <article className="content">
                             <h1 className="content-title">{post.title}</h1>
-                            <div>{post.published_at.formatString("MMM D, YYYY")}</div>
+                            <div className="content-date">{post.published_at_medium}</div>
                             { post.feature_image ?
                                 <figure className="post-feature-image">
                                     <img src={ post.feature_image } alt={ post.title } />
