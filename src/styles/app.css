@@ -23,7 +23,8 @@ what's here to work the way you'd like it to.
 
     /* Colours */
     --color-primary: #3eb0ef;
-    --color-base: #15171A;
+    /* --color-base: #15171A; */
+    --color-base: black;
     --color-secondary: #5B7A81;
     --color-border: #c7d5d8;
     --color-bg: #f5f5f5;
@@ -132,17 +133,21 @@ video {
     font-size: 100%;
     vertical-align: baseline;
 }
+
 body {
     line-height: 1;
 }
+
 ol,
 ul {
     list-style: none;
 }
+
 blockquote,
 q {
     quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -150,13 +155,16 @@ q:after {
     content: "";
     content: none;
 }
+
 table {
     border-spacing: 0;
     border-collapse: collapse;
 }
+
 img {
     max-width: 100%;
 }
+
 html {
     box-sizing: border-box;
     font-family: sans-serif;
@@ -164,34 +172,42 @@ html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
+
 *,
 *:before,
 *:after {
     box-sizing: inherit;
 }
+
 a {
     background-color: transparent;
 }
+
 a:active,
 a:hover {
     outline: 0;
 }
+
 b,
 strong {
     font-weight: bold;
 }
+
 i,
 em,
 dfn {
     font-style: italic;
 }
+
 h1 {
     margin: 0.67em 0;
     font-size: 2em;
 }
+
 small {
     font-size: 80%;
 }
+
 sub,
 sup {
     position: relative;
@@ -199,21 +215,27 @@ sup {
     line-height: 0;
     vertical-align: baseline;
 }
+
 sup {
     top: -0.5em;
 }
+
 sub {
     bottom: -0.25em;
 }
+
 img {
     border: 0;
 }
+
 svg:not(:root) {
     overflow: hidden;
 }
+
 mark {
     background-color: #fdffb6;
 }
+
 code,
 kbd,
 pre,
@@ -221,6 +243,7 @@ samp {
     font-family: monospace, monospace;
     font-size: 1em;
 }
+
 button,
 input,
 optgroup,
@@ -230,14 +253,17 @@ textarea {
     color: inherit;
     font: inherit;
 }
+
 button {
     overflow: visible;
     border: none;
 }
+
 button,
 select {
     text-transform: none;
 }
+
 button,
 html input[type="button"],
 input[type="reset"],
@@ -246,50 +272,62 @@ input[type="submit"] {
 
     -webkit-appearance: button;
 }
+
 button[disabled],
 html input[disabled] {
     cursor: default;
 }
+
 button::-moz-focus-inner,
 input::-moz-focus-inner {
     padding: 0;
     border: 0;
 }
+
 input {
     line-height: normal;
 }
+
 input:focus {
     outline: none;
 }
+
 input[type="checkbox"],
 input[type="radio"] {
     box-sizing: border-box;
     padding: 0;
 }
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     height: auto;
 }
+
 input[type="search"] {
     box-sizing: content-box;
 
     -webkit-appearance: textfield;
 }
+
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
 }
+
 legend {
     padding: 0;
     border: 0;
 }
+
 textarea {
     overflow: auto;
 }
+
 table {
     border-spacing: 0;
     border-collapse: collapse;
 }
+
 td,
 th {
     padding: 0;
@@ -321,7 +359,7 @@ body {
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    -moz-font-feature-settings: "liga" on;
+    -moz-font-feature-settings: "liga"on;
 }
 
 ::selection {
@@ -430,6 +468,7 @@ blockquote small {
     font-size: 0.9em;
     opacity: 0.8;
 }
+
 /* Quotation marks */
 blockquote small:before {
     content: "\2014 \00A0";
@@ -438,6 +477,7 @@ blockquote small:before {
 blockquote cite {
     font-weight: bold;
 }
+
 blockquote cite a {
     font-weight: normal;
 }
@@ -469,6 +509,7 @@ h1 {
     font-size: 4rem;
     font-weight: 700;
 }
+
 @media (max-width: 500px) {
     h1 {
         font-size: 2rem;
@@ -479,6 +520,7 @@ h2 {
     margin: 1.5em 0 0.5em 0;
     font-size: 2rem;
 }
+
 @media (max-width: 500px) {
     h2 {
         font-size: 1.8rem;
@@ -490,6 +532,7 @@ h3 {
     font-size: 1.8rem;
     font-weight: 500;
 }
+
 @media (max-width: 500px) {
     h3 {
         font-size: 1.7rem;
@@ -569,6 +612,7 @@ h6 {
     font-size: 3.4rem;
     font-weight: 700;
 }
+
 @media (max-width: 500px) {
     .content-body h1 {
         font-size: 2.8rem;
@@ -579,11 +623,13 @@ h6 {
     margin: 0 0 0.8em;
     font-size: 5rem;
 }
+
 @media (max-width: 500px) {
     .content-title {
         margin: 0.8em 0;
         font-size: 3.4rem;
     }
+
     .content {
         font-size: 1.8rem;
     }
@@ -594,6 +640,7 @@ h6 {
     font-size: 3.2rem;
     font-weight: 700;
 }
+
 @media (max-width: 500px) {
     .content-body h2 {
         font-size: 2.6rem;
@@ -605,6 +652,7 @@ h6 {
     font-size: 2.8rem;
     font-weight: 700;
 }
+
 @media (max-width: 500px) {
     .content-body h3 {
         font-size: 2.2rem;
@@ -616,6 +664,7 @@ h6 {
     font-size: 2.4rem;
     font-weight: 700;
 }
+
 @media (max-width: 500px) {
     .content-body h4 {
         font-size: 2.2rem;
@@ -627,7 +676,7 @@ h6 {
     margin: 0.5em 0;
     padding: 1em 0 1.5em;
     border: 0;
-    font-family: Georgia,serif;
+    font-family: Georgia, serif;
     color: var(--color-primary);
     font-style: italic;
     font-size: 3.2rem;
@@ -686,6 +735,8 @@ h6 {
 }
 
 .site-logo {
+    /* This is called CSS cheating */
+    opacity: 0.99;
     height: 25px;
 }
 
@@ -718,14 +769,16 @@ h6 {
     color: #fff;
     font-size: 4rem;
     line-height: 1.3em;
+    opacity: .9;
 }
 
 .site-banner-desc {
     margin: 5px 0 0 0;
     padding: 0;
-    font-size: 2.4rem;
+    font-size: 2rem;
     line-height: 1.3em;
     opacity: 0.7;
+    font-style: italic;
 }
 
 .site-nav {
@@ -739,11 +792,12 @@ h6 {
     margin: 0 20px 0 -10px;
 }
 
-.site-nav-right {
+/* .site-nav-right {
     margin: 0 -10px 0 20px;
-}
+} */
 
 .site-nav-button {
+    margin-right: 10px;
     display: inline-block;
     padding: 5px 10px;
     border: #fff 1px solid;
@@ -756,6 +810,13 @@ h6 {
 
 .site-nav-button:hover {
     text-decoration: none;
+}
+
+.site-header-image {
+    position: absolute;
+    margin-top: -15vw;
+    width: 100%;
+    height: calc(45vw + 250px);
 }
 
 /* Main
@@ -780,6 +841,7 @@ h6 {
         grid-template-columns: 1fr 1fr;
     }
 }
+
 @media (max-width: 680px) {
     .post-feed {
         grid-template-columns: 1fr;
@@ -787,8 +849,12 @@ h6 {
 }
 
 .post-card {
+    opacity: 0.99;
+    background-color: white;
     color: inherit;
     text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 8px 14px 38px rgba(39, 44, 49, .06), 1px 3px 8px rgba(39, 44, 49, .03);
 }
 
 .post-card:hover {
@@ -796,21 +862,22 @@ h6 {
 }
 
 .post-card-tags {
+    padding: 0 25px;
     margin: 0 0 5px 0;
     font-size: 1.4rem;
     line-height: 1.15em;
     color: var(--color-secondary);
 }
 
-
 .post-card-title {
     margin: 0 0 10px 0;
-    padding: 0;
+    padding: 0 25px;
 }
 
 .post-card-excerpt {
     font-size: 1.6rem;
     line-height: 1.55em;
+    padding: 0 25px 0 25px;
 }
 
 .post-card-image {
@@ -818,7 +885,8 @@ h6 {
     width: auto;
     height: 200px;
     background: var(--color-secondary) no-repeat center center;
-    background-size: cover;
+    background-size: 100% 100%;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .post-card-footer {
@@ -827,6 +895,7 @@ h6 {
     justify-content: space-between;
     margin: 10px 0 0 0;
     color: var(--color-secondary);
+    padding: 0 25px 25px;
 }
 
 .post-card-footer-left {
@@ -886,6 +955,7 @@ h6 {
         border-bottom: var(--color-bg) 1px solid;
         padding-bottom: 4vw;
     }
+
     .tag-header p {
         font-size: 1.7rem;
     }
@@ -940,9 +1010,11 @@ h6 {
         border-bottom: var(--color-bg) 1px solid;
         padding-bottom: 4vw;
     }
+
     .author-header p {
         font-size: 1.7rem;
     }
+
     .author-header-image {
         height: 80px;
         width: 80px;
@@ -988,7 +1060,7 @@ h6 {
 
 .site-foot {
     padding: 20px 0 40px 0;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1.3rem;
     background: var(--color-base);
 }
@@ -1000,12 +1072,12 @@ h6 {
 }
 
 .site-foot-nav a {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .site-foot-nav a:hover {
     text-decoration: none;
-    color: rgba(255,255,255,1);
+    color: rgba(255, 255, 255, 1);
 }
 
 .site-foot-nav-right a {
