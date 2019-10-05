@@ -58,6 +58,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 {/*<a className="site-nav-item" href={ `https://feedly.com/i/subscription/feed/${config.siteUrl}/rss/` } target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></a>*/}
                                 <div className="site-nav-right">
                                 <Link className="site-nav-button" to="/about">About</Link>
+                                <Link className="site-nav-button" to="/projects">Projects</Link>
                             </div>
                             </div>
                         </div>
