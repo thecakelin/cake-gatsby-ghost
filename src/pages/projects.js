@@ -187,45 +187,60 @@ const ProjectsPage = ({data}) => {
 
     return (
         <Layout>
-            <h1 className="bubble-title">Gatsby Plugin Ecosystem</h1>
-            <div className="bubble-subtitle">A Bubble Chart Story</div>
-            <div className="overview-text">
-                Helllllo! Thanks for checking out this project!
-                <br/><br/>
-                This is a fun visualization of all of Gatsby's plugins!
-                This uses the plugin gatsby-source-npm-package-search to pull all of Gatsby's plugins from NPM. GraphiQL makes selecting which fields you want a *breeze*.
-                Each of the plugins came with a list of keywords. I rolled it up so each keyword circle contains circles of all the plugins for that keyword.
-                The purple color is from the number of Gatsby plugins that exist for each keyword. The 1,337 Gatsby plugins (2019-10-11) have 1,196 plugin keywords.
-                Some of the main keywords (like "gatsby-source-plugin") are filtered out, so that the differences in other ones can stand out more.
-                This could be it's own feature, a user could click on a bubble in the vizualization, a legend item or enter text to have that keyword group disappear.
-                <br/><br/>
-                I built this to understand the direction that Gatsby is headed or potential plugin needs the community might have.
-                It's also for me to use as I pull all of my data out of different software that I use. I've written some glue code that pulls
-                my logins out of a password manager. The ability to search for a plugin (or use gatsby-source-custom-api!) to match these data sources 
-                means Gatsby is taking care of the hard parts and leaving the fun of exploring all my data to me.
-                The content mesh is here for the taking y'allll. As a scientist and full stack developer, I am absolutely digging it.
-                <br/><br/>
-                I'm still working on #a11y for this. Debating between a standard table and trying to build something that would 
-                pick out the most visually important pieces of the chart and convert them into a text description.
-                Accessible charts should have easy to understand captions, but I'd like to see it go farther. 
-                <br/><br/>
-                The clear winners for keywords below are "remark", "markdown", "react", "image", "plugin" and "gatsby-component". 
-                The react and plugin keyword bubbles are about a fifth the size of the remark and markdown bubbles.
-                Perhaps "plugin" is too generic and should join the filtered keywords list?
-                <br/><br/>
-                Another thing to notice is the amount of large keyword circles that are light pink (few plugins for that keyword).
-                These are popular needs that are dominated by only 1 or 2 plugins.
-                There are also some tiny bubbles in darker shades. It's possible those are from user variants of official Gatsby plugins, but they could be potential areas for new, useful plugins.
-                <br/><br/>
-                Getting D3 and React to play well together is tricky, because they both want to control the DOM. This gets even more difficult with events and transitions.
-                The last React and D3 setup I did was in Typescript. We built a component infrastructure which was complex.
-                Decided to try something new this time and do it in a more static site friendly way. Here's my main source:
-                <br/>
-                <a href="https://www.youtube.com/watch?v=Bdeu-BFisJU">Jason Lengstorf & Swizec Teller Youtube video (auto-generated captions) </a>
-                 and <a href="https://github.com/jlengstorf/react-dataviz">the repo for that video</a>
-                <br/><br/>
-                Are you wondering why the keyword labels in the visualization are underneath the circles? That's because with SVG, whatever element is added last is on top.
-                Icing on the CAKE, if you will. :D
+            {/* I could change this to be a Ghost blog entry I pull here, just might need to figure out where to turn it off on another route */}
+            <div className="project-plugins-text-container">
+                <h1 className="project-plugins-title">Gatsby Plugin Ecosystem</h1>
+                <div className="project-plugins-subtitle">A Bubble Chart Story</div>
+                <div className="project-plugins-overview-text">
+                    Helllllo! Thanks for checking out this project! This is a fun visualization of all of Gatsby's plugins!
+                    <br/><br/>
+                    Code for page*:
+                    <br/>
+                    <a href="https://github.com/thecakelin/cake-gatsby-ghost/blob/projects/gatsby-plugins-d3/src/pages/projects.js">Github main project branch and main file</a>
+                    <br/>
+                    <a href="https://github.com/thecakelin/cake-gatsby-ghost/pull/1">Currently open pull request 2019-10-10</a>
+                    <br/>
+                    <a href="https://github.com/thecakelin/cake-gatsby-ghost/tree/master/src/pages/projects.js">After merging - main project file</a>
+                    <br/><br/>
+                    This uses the plugin gatsby-source-npm-package-search to pull all of Gatsby's plugins from NPM. GraphiQL makes selecting which fields you want a *breeze*.
+                    Each of the plugins came with a list of keywords. I rolled it up so each keyword circle contains circles of all the plugins for that keyword.
+                    The purple color is from the number of Gatsby plugins that exist for each keyword. The 1,337 Gatsby plugins (2019-10-11) have 1,196 plugin keywords.
+                    Some of the main keywords (like "gatsby-source-plugin") are filtered out, so that the differences in other ones can stand out more.
+                    This could be it's own feature, a user could click on a bubble in the vizualization, a legend item or enter text to have that keyword group disappear.
+                    <br/><br/>
+                    I built this to understand the direction that Gatsby is headed or potential plugin needs the community might have.
+                    It's also for me to use as I pull all of my data out of different software that I use. I've written some glue code that pulls
+                    my logins out of a password manager. The ability to search for a plugin (or use gatsby-source-custom-api!) to match these data sources 
+                    means Gatsby is taking care of the hard parts and leaving the fun of exploring all my data to me.
+                    The content mesh is here for the taking y'allll. As a scientist and full stack developer, I am absolutely digging it.
+                    <br/><br/>
+                    I'm still working on #a11y for this. Debating between a standard table and trying to build something that would 
+                    pick out the most visually important pieces of the chart and convert them into a text description.
+                    Accessible charts should have easy to understand captions, but I'd like to see it go farther. 
+                    <br/><br/>
+                    The clear winners for keywords below are "remark", "markdown", "react", "image", "plugin" and "gatsby-component". 
+                    The react and plugin keyword bubbles are about a fifth the size of the remark and markdown bubbles.
+                    Perhaps "plugin" is too generic and should join the filtered keywords list?
+                    <br/><br/>
+                    Another thing to notice is the amount of large keyword circles that are light pink (few plugins for that keyword).
+                    These are popular needs that are dominated by only 1 or 2 plugins.
+                    There are also some tiny bubbles in darker shades. It's possible those are from user variants of official Gatsby plugins, but they could be potential areas for new, useful plugins.
+                    <br/><br/>
+                    Getting D3 and React to play well together is tricky, because they both want to control the DOM. This gets even more difficult with events and transitions.
+                    The last React and D3 setup I did was in Typescript. We built a component infrastructure which was complex.
+                    Decided to try something new this time and do it in a more static site friendly way. Here's my main source:
+                    <br/>
+                    <a href="https://www.youtube.com/watch?v=Bdeu-BFisJU">Jason Lengstorf & Swizec Teller Youtube video (auto-generated captions) </a>
+                    and <a href="https://github.com/jlengstorf/react-dataviz">the repo for that video</a>
+                    <br/><br/>
+                    A general shoutout to <a href="https://www.d3-graph-gallery.com">Yan Holtz's D3 resources and examples</a>. 
+                    I haven't come across his site before and it's beautiful, concise and approachable.
+                    <br/><br/>
+                    Are you wondering why the keyword labels in the visualization are underneath the circles? That's because with SVG, whatever element is added last is on top.
+                    Icing on the CAKE, if you will. :D
+
+                    <br/><br/>* Interesting that linking to code for a project will have a different URL over time. I wonder which different solutions exist for that.
+                </div>
             </div>
             <svg 
                 className="project-plugins" 

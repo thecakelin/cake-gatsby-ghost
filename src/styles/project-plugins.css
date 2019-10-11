@@ -5,16 +5,22 @@
     /* fill: white; */
     /* stroke: black; */
 /* } */
-.bubble-title {
+.project-plugins-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-plugins-title {
     text-align: center;
-    font-size: 5em;
+    font-size: 4em;
     color: #362066;
     margin-bottom: 15px;
 }
 
-.bubble-subtitle {
+.project-plugins-subtitle {
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     color: grey;
     margin-bottom: 40px;
     font-style: italic;
@@ -29,9 +35,10 @@
     text-anchor: middle;
 }
 
-.overview-text {
+.project-plugins-overview-text {
     text-align: left;
-    margin: 20px 300px;
+    margin: 20px;
+    max-width: 500px;
 }
 
 .bubble-plugin .bubble {
