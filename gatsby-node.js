@@ -268,6 +268,5 @@ exports.createPages = ({ graphql, actions }) => {
             })
         )
     })
-
     return Promise.all([createPosts, createTags, createAuthors, createPages])
 }

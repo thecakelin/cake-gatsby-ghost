@@ -1,0 +1,61 @@
+/* Switch to SCSS for nesting */
+/* .project-plugins { */
+/* .project-plugins .bubble { */
+    /* fill-opacity: 0.2; */
+    /* fill: white; */
+    /* stroke: black; */
+/* } */
+.project-plugins-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-plugins-title {
+    text-align: center;
+    font-size: 4em;
+    color: #362066;
+    margin-bottom: 15px;
+}
+
+.project-plugins-subtitle {
+    text-align: center;
+    font-size: 2em;
+    color: grey;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.project-plugins .bubble:hover {
+    stroke: black;
+    stroke-width: 5px;
+}
+
+.project-plugins text {
+    text-anchor: middle;
+}
+
+.project-plugins-overview-text {
+    text-align: left;
+    margin: 20px;
+    max-width: 500px;
+}
+
+.bubble-plugin .bubble {
+    /* stroke: white; */
+    stroke: grey;
+    stroke-width: 2px;
+}
+
+.bubble-plugin {
+    font-size: .5em;
+    opacity: .4;
+}
+
+.bubble-keyword {
+    font-size: 1.2em;
+    font-weight: bold;
+    opacity: 0.6;
+    /* fill: black; */
+}
+/* } */
