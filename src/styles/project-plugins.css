@@ -1,0 +1,30 @@
+/* Switch to SCSS for nesting */
+/* .project-plugins { */
+.project-plugins .bubble {
+    fill-opacity: 0.2;
+    fill: white;
+    stroke: black;
+}
+
+.project-plugins .bubble:hover {
+    stroke-width: 5px;
+}
+
+.project-plugins text {
+    text-anchor: middle;
+}
+
+.overview-text {
+    text-align: center;
+}
+
+.bubble-plugin {
+    font-size: .5em;
+    opacity: .5;
+}
+
+.bubble-keyword {
+    font-size: 1.5em;
+    fill: black;
+}
+/* } */
