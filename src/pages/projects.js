@@ -42,9 +42,9 @@ const packKeywords = data => d3.pack()
         }
     }));
 
-const PackedBubbles = packedData => {
+const PackedBubbles = ({packedData}) => {
     return (
-        <g transform={`translate(${cx}, ${cy})`}>
+        <g transform={`translate(0,0)`}>
             {packedData.leaves().map(d => (
                 <g transform={`translate(${d.x},${d.y})`}>
                     <Bubble 
