@@ -9,16 +9,19 @@ import '../styles/project-plugins.css';
 // Children or offshoot plugins: @name/pluginX vs pluginX, how to display those?
 // Plugin has external author to gatsby if @ in name
 
-const margin = {top: 50, right: 50, bottom: 50, left: 50};
+const margin = {top: 0, right: 50, bottom: 50, left: 100};
 
-const outerWidth = 1200,
-    outerHeight = 1200,
+const outerWidth = 1400,
+    outerHeight = 1400,
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
 // These keywords match (almost) everything, removing to focus on the differences
 // Oooo, can make this a user input filter
-const FILTERED_KEYWORDS = ['gatsby', 'gatsby-plugin', 'gatsby-source-plugin'];
+const FILTERED_KEYWORDS = ['gatsby', 'gatsby-plugin', 'gatsby-source-plugin', 'gatsby-theme'];
+
+// If bubble sized is based on total downloads, or number of plugins for a keyword (with avg downloads for plugin size)
+const BUBBLE_SIZE = "plugins";
 
 // For packing circles of plugins inside a keyword circle
 const packPlugins = (data, diameter) => d3.pack()
@@ -42,7 +45,7 @@ const packKeywords = data => d3.pack()
         }
     }));
 
-const PackedBubbles = ({packedData}) => {
+const PackedBubbles = ({packedData, color}) => {
     return (
         <g transform={`translate(0,0)`}>
             {packedData.leaves().map(d => (
@@ -54,6 +57,7 @@ const PackedBubbles = ({packedData}) => {
                         r={isNaN(d.r) ? 5 : d.r} 
                         x={0} 
                         y={0}
+                        color={color}
                     />
                     {(packPlugins(d, isNaN(d.r) ? 5 : d.r * 2)).leaves().map(plugin => (      
                         <Bubble 
@@ -63,6 +67,7 @@ const PackedBubbles = ({packedData}) => {
                             r={isNaN(plugin.r) ? 5 : plugin.r} 
                             x={plugin.x - d.r} 
                             y={plugin.y - d.r}
+                            color={color}
                         />
                     ))}
                 </g>
@@ -71,7 +76,10 @@ const PackedBubbles = ({packedData}) => {
     )
 }
 
-const Bubble = ({ className, keyword, x, y, r }) => {
+const Bubble = ({ className, keyword, d, r, x, y, color }) => {
+    // console.log(color);
+    // console.log(d);
+    // console.log(color(d.value));
     return (
         <g key={`bubble-container-${keyword}`} transform={`translate(${x || 0}, ${y || 0})`}>
             <circle
@@ -80,15 +88,19 @@ const Bubble = ({ className, keyword, x, y, r }) => {
                 cx={0}
                 cy={0}
                 r={r}
+                fill={className === "bubble-keyword" ? color(d.data.value.stats.totalPlugins) : "white"}
             >
-            <title>{keyword}</title>
+                <title>{keyword}</title>
             </circle>
-            {(r > 30) ? (
+            {(
+                (className === "bubble-keyword" && r > 30) || 
+                (className === "bubble-plugin" && r > 20)) ? (
                 <text
                     className={`bubble-text ${className}`}
                     key={`bubble-text-${keyword}`}
                     x={0}
                     // Adjust keyword label up so it's not overlapping plugin labels
+                    // Need an overlap mechanism for the plugins names
                     y={className === "bubble-keyword" ? -15 : 0}
                 >
                     {keyword}
@@ -159,8 +171,8 @@ const ProjectsPage = ({data}) => {
 
     console.log("rolled up yo", keywordsRolled);   
 
-    // const maxPlugins = d3.max(keywordsRolled, d => d.value.stats.totalPlugins);
-    // const maxAvgDownloads = d3.max(keywordsRolled, d => d.value.stats.avgDownloads);
+    const maxPlugins = d3.max(keywordsRolled, d => d.value.stats.totalPlugins);
+    // const maxAvgDownloads = d3.max(keywordsRolled, d => d.value.stats.totalDownloads);
     // console.log("max plugin & avg dl:", maxPlugins, maxAvgDownloads);
 
     // const xScale = d3.scaleLinear().domain([0, maxPlugins]).range([0, width]);
@@ -168,9 +180,53 @@ const ProjectsPage = ({data}) => {
     // console.log(packKeywords(keywordsRolled).leaves()[0]);
     // console.log(packPlugins(packKeywords(keywordsRolled).leaves()[0].value));
     
+    const color = d3.scaleLinear()
+        .domain([0, maxPlugins])
+        .range(["#fff", "#362066"])
+        .interpolate(d3.interpolateHcl);
+
     return (
         <Layout>
-            <div className="overview-text">This is a fun visualization of all of Gatsby's plugins! Or it will be.</div>
+            <h1 className="bubble-title">Gatsby Plugin Ecosystem</h1>
+            <div className="bubble-subtitle">A Bubble Chart Story</div>
+            <div className="overview-text">
+                Helllllo! Thanks for checking out this project!
+                <br/><br/>
+                This is a fun visualization of all of Gatsby's plugins!
+                This uses the plugin gatsby-source-npm-package-search to pull all of Gatsby's plugins from NPM. GraphiQL makes selecting which fields you want a *breeze*.
+                Each of the plugins came with a list of keywords. I rolled it up so each keyword circle contains circles of all the plugins for that keyword.
+                The purple color is from the number of Gatsby plugins that exist for each keyword. The 1,337 Gatsby plugins (2019-10-11) have 1,196 plugin keywords.
+                Some of the main keywords (like "gatsby-source-plugin") are filtered out, so that the differences in other ones can stand out more.
+                This could be it's own feature, a user could click on a bubble in the vizualization, a legend item or enter text to have that keyword group disappear.
+                <br/><br/>
+                I built this to understand the direction that Gatsby is headed or potential plugin needs the community might have.
+                It's also for me to use as I pull all of my data out of different software that I use. I've written some glue code that pulls
+                my logins out of a password manager. The ability to search for a plugin (or use gatsby-source-custom-api!) to match these data sources 
+                means Gatsby is taking care of the hard parts and leaving the fun of exploring all my data to me.
+                The content mesh is here for the taking y'allll. As a scientist and full stack developer, I am absolutely digging it.
+                <br/><br/>
+                I'm still working on #a11y for this. Debating between a standard table and trying to build something that would 
+                pick out the most visually important pieces of the chart and convert them into a text description.
+                Accessible charts should have easy to understand captions, but I'd like to see it go farther. 
+                <br/><br/>
+                The clear winners for keywords below are "remark", "markdown", "react", "image", "plugin" and "gatsby-component". 
+                The react and plugin keyword bubbles are about a fifth the size of the remark and markdown bubbles.
+                Perhaps "plugin" is too generic and should join the filtered keywords list?
+                <br/><br/>
+                Another thing to notice is the amount of large keyword circles that are light pink (few plugins for that keyword).
+                These are popular needs that are dominated by only 1 or 2 plugins.
+                There are also some tiny bubbles in darker shades. It's possible those are from user variants of official Gatsby plugins, but they could be potential areas for new, useful plugins.
+                <br/><br/>
+                Getting D3 and React to play well together is tricky, because they both want to control the DOM. This gets even more difficult with events and transitions.
+                The last React and D3 setup I did was in Typescript. We built a component infrastructure which was complex.
+                Decided to try something new this time and do it in a more static site friendly way. Here's my main source:
+                <br/>
+                <a href="https://www.youtube.com/watch?v=Bdeu-BFisJU">Jason Lengstorf & Swizec Teller Youtube video (auto-generated captions) </a>
+                 and <a href="https://github.com/jlengstorf/react-dataviz">the repo for that video</a>
+                <br/><br/>
+                Are you wondering why the keyword labels in the visualization are underneath the circles? That's because with SVG, whatever element is added last is on top.
+                Icing on the CAKE, if you will. :D
+            </div>
             <svg 
                 className="project-plugins" 
                 width={outerWidth} 
@@ -179,7 +235,7 @@ const ProjectsPage = ({data}) => {
                 // ref={ref => (this.svgRef = ref)}
             >
                 <g transform={`translate(${margin.left},${margin.top})`}>
-                    <PackedBubbles packedData={packKeywords(keywordsRolled)}/>
+                    <PackedBubbles packedData={packKeywords(keywordsRolled)} color={color}/>
                 </g>
             </svg>
         </Layout>

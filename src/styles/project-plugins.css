@@ -1,12 +1,27 @@
 /* Switch to SCSS for nesting */
 /* .project-plugins { */
-.project-plugins .bubble {
-    fill-opacity: 0.2;
-    fill: white;
-    stroke: black;
+/* .project-plugins .bubble { */
+    /* fill-opacity: 0.2; */
+    /* fill: white; */
+    /* stroke: black; */
+/* } */
+.bubble-title {
+    text-align: center;
+    font-size: 5em;
+    color: #362066;
+    margin-bottom: 15px;
+}
+
+.bubble-subtitle {
+    text-align: center;
+    font-size: 3em;
+    color: grey;
+    margin-bottom: 40px;
+    font-style: italic;
 }
 
 .project-plugins .bubble:hover {
+    stroke: black;
     stroke-width: 5px;
 }
 
@@ -15,16 +30,25 @@
 }
 
 .overview-text {
-    text-align: center;
+    text-align: left;
+    margin: 20px 300px;
+}
+
+.bubble-plugin .bubble {
+    /* stroke: white; */
+    stroke: grey;
+    stroke-width: 2px;
 }
 
 .bubble-plugin {
     font-size: .5em;
-    opacity: .5;
+    opacity: .4;
 }
 
 .bubble-keyword {
-    font-size: 1.5em;
-    fill: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    opacity: 0.6;
+    /* fill: black; */
 }
 /* } */
